@@ -8,7 +8,7 @@
 
 namespace Radmas\VichJmsIntegrationBundle\Listener;
 
-use Doctrine\Common\Annotations\FileCacheReader;
+use Doctrine\Common\Annotations\Reader;
 use JMS\Serializer\EventDispatcher\EventSubscriberInterface;
 use JMS\Serializer\EventDispatcher\ObjectEvent;
 use Metadata\ClassMetadata;
@@ -30,7 +30,7 @@ class PreSerializeListener implements EventSubscriberInterface {
     private $logger;
     private $visited = array();
 
-    function __construct(UploaderHelper $vich, FileCacheReader $annotations, Logger $logger)
+    function __construct(UploaderHelper $vich, Reader $annotations, Logger $logger)
     {
         $this->annotations = $annotations;
         $this->vich = $vich;
